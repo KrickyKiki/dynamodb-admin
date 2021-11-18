@@ -8,7 +8,7 @@
 <body class='container-fluid d-flex flex-column'>
   <header>
     <ol class='breadcrumb'>
-      <a class='breadcrumb-item' href='/'>Tables</a>
+      <a class='breadcrumb-item' href='/dynamodb'>Tables</a>
       <a class="breadcrumb-item active">
         <%= Table.TableName %>
         <span class="badge badge-secondary badge-pill ml-1">
@@ -19,17 +19,17 @@
 
     <ul class='nav nav-tabs'>
       <li class='nav-item'>
-        <a class='nav-link' href='/tables/<%= Table.TableName %>'>
+        <a class='nav-link' href='/dynamodb/tables/<%= Table.TableName %>'>
           Items
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/tables/<%= Table.TableName %>/get">
+        <a class="nav-link" href="/dynamodb/tables/<%= Table.TableName %>/get">
           Get
         </a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link active' href='/tables/<%= Table.TableName %>/meta'>Meta</a>
+        <a class='nav-link active' href='/dynamodb/tables/<%= Table.TableName %>/meta'>Meta</a>
       </li>
     </ul>
   </header>
@@ -47,13 +47,13 @@
   </main>
   <script>
       document.querySelector('#deleteTable').addEventListener('click', () => {
-          fetch('/tables/<%= Table.TableName %>', {
+          fetch('/dynamodb/tables/<%= Table.TableName %>', {
               method: 'delete'
           }).then((response) => {
               if (!response.ok) {
                   throw new Error
               }
-              window.location.href = '/'
+              window.location.href = '/dynamodb'
           }).catch(() => {
               window.alert('There was an error when attempting to delete the table.')
           })
