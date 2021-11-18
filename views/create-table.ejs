@@ -59,7 +59,7 @@
                     body: JSON.stringify(createTableRequest)
                 })
                 if (response.ok) {
-                    window.location = '/'
+                    window.location = '/dynamodb'
                 } else {
                     const value = await response.text()
                     $('#error-wrapper').html('<div class="alert alert-danger" role="alert">' + JSON.parse(value).message + '</div>')
@@ -167,7 +167,7 @@
 <body class="container-fluid">
     <header>
         <ol class="breadcrumb">
-            <a class="breadcrumb-item" href="/">Tables</a>
+            <a class="breadcrumb-item" href="/dynamodb">Tables</a>
             <a class="breadcrumb-item active">Create Table</a>
         </ol>
     </header>
