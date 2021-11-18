@@ -8,8 +8,8 @@
 <body class='container-fluid d-flex flex-column'>
   <header>
     <ol class='breadcrumb'>
-      <a class='breadcrumb-item' href='/'>Tables</a>
-      <a class='breadcrumb-item' href='/tables/<%= TableName %>'>
+      <a class='breadcrumb-item' href='/dynamodb'>Tables</a>
+      <a class='breadcrumb-item' href='/dynamodb/tables/<%= TableName %>'>
         <%= Table.TableName %>
         <span class="badge badge-secondary badge-pill ml-1">
           <%= Table.ItemCount %>
@@ -85,7 +85,7 @@
           method: 'delete'
         }).then((response) => {
           if (response.ok) {
-            window.location = `/tables/<%= TableName %>`
+            window.location = `/dynamodb/tables/<%= TableName %>`
           }
         }).catch((error) => {
           console.error(error)
