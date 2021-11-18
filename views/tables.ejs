@@ -9,7 +9,7 @@
 <body class='container'>
   <header>
     <ol class="breadcrumb">
-      <a class="breadcrumb-item active" href="/">Tables</a>
+      <a class="breadcrumb-item active" href="/dynamodb">Tables</a>
     </ol>
   </header>
   <main>
@@ -38,7 +38,7 @@
         return
       }
 
-      fetch(`/tables/${TableName}`, {
+      fetch(`/dynamodb/tables/${TableName}`, {
         method: 'delete'
       })
         .then((response) => {
@@ -57,7 +57,7 @@
         return
       }
 
-      fetch(`/tables/${TableName}/all`, {
+      fetch(`/dynamodb/tables/${TableName}/all`, {
         method: 'delete'
       }).then((response) => {
         if (!response.ok) {
@@ -77,7 +77,7 @@
     <ul class="list-group" id="table-list">
       <% for(var i = 0; i < data.length; i++) { %>
         <li class="list-group-item" data-table-name="<%= data[i].TableName %>">
-          <a href='/tables/<%= data[i].TableName %>'>
+          <a href='/dynamodb/tables/<%= data[i].TableName %>'>
             <%= data[i].TableName %>
           </a>
           <a href="#" onClick="deleteTable('<%= data[i].TableName %>'); return false"
@@ -95,7 +95,7 @@
       <% } %>
     </ul>
     <div style="margin-top: 12px;">
-      <a href='/create-table' class="btn btn-primary">
+      <a href='/dynamodb/create-table' class="btn btn-primary">
         Create table
       </a>
     </div>
